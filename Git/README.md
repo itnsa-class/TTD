@@ -4,6 +4,11 @@
 
 1.  [什么是版本控制](version-control.md)
 2.  [源代码管理](source-code-management.md)
+3. [什么是Git](Git.md)
+4. [为什么要使用Git](why-Git.md)
+5. [安装Git](install-Git.md)
+6. [Git SSH](Git-SSH.md)
+7. 
 
 ## 入门
 
