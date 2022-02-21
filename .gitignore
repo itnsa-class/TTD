@@ -3,4 +3,4 @@
 vx.json
 vx_notebook/
 vx_recycle_bin/
-^~\$*
+~*
