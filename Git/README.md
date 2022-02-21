@@ -27,3 +27,5 @@
 ## 参考文档
 
 [Git Tutorials and Training | Atlassian Git Tutorial](https://www.atlassian.com/zh/git/tutorials)
+
+[Git版本控制、分支策略与代码评审](https://blog.csdn.net/nklinsirui/article/details/80303605)
