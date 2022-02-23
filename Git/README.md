@@ -2,8 +2,8 @@
 
 ## 新手
 
-1.  [什么是版本控制](beginner/version-control.md)
-2.  [源代码管理](beginner/source-code-management.md)
+1. [什么是版本控制](beginner/version-control.md)
+2. [源代码管理](beginner/source-code-management.md)
 3. [什么是Git](beginner/Git.md)
 4. [为什么要使用Git](beginner/why-Git.md)
 5. [安装Git](beginner/install-Git.md)
@@ -58,4 +58,8 @@
 
 [Git操作规范](https://segmentfault.com/a/1190000014461898)
 
-[廖雪峰的Git教程](https://www.liaoxuefeng.com/wiki/896043488029600)
+[Git教程 | 廖雪峰的官方网站](https://www.liaoxuefeng.com/wiki/896043488029600)
+
+[Git教程 | 菜鸟教程](https://www.runoob.com/git/git-tutorial.html)
+
+[Git教程 | W3Cschool](https://www.w3cschool.cn/git/)
