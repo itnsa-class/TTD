@@ -56,4 +56,6 @@
 
 [Git版本控制、分支策略与代码评审](https://blog.csdn.net/nklinsirui/article/details/80303605)
 
-[git 操作规范](https://segmentfault.com/a/1190000014461898)
+[Git操作规范](https://segmentfault.com/a/1190000014461898)
+
+[廖雪峰的Git教程](https://www.liaoxuefeng.com/wiki/896043488029600)
