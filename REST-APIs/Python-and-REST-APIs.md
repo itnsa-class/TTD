@@ -1,7 +1,7 @@
 # Python 和 REST APIs：与Web服务交互
 
 
-> 翻译：  
+> 翻译： [Carllllll](https://github.com/F-Ar1es)
 > 原文：Python and REST APIs: Interacting With Web Services   
 > 链接：https://realpython.com/api-integration-in-python/   
 
@@ -21,4 +21,6 @@
 > 免费资源：[点击这里下载“REST API示例”指南](https://realpython.com/api-integration-in-python/)，并获得 `Python + REST API` 原则的实际介绍和可操作的示例。
 
 
-REST 体系是一个什么东西。
+<!-- Others' translation -->
+
+# REST 和 Python：使用 API
