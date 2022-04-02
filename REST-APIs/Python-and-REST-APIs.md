@@ -25,7 +25,7 @@
 
 # REST 和 Python：使用 API
 
-&emsp;&emsp;要写代码跟 `REST API` 进行交互，很多 `Python` 开发者使用 `requests`去发送 `HTTP` 请求。这个库提取出创建 `HTTP` 请求的复杂性。它是为数不多值得当作标准库一部分来对待的项目之一。
+&emsp;&emsp;要写代码跟 `REST API` 进行交互，很多 `Python` 开发者使用 `requests` 去发送 `HTTP` 请求。这个库提取出创建 `HTTP` 请求的复杂性。它是为数不多值得当作标准库一部分来对待的项目之一。
 
 &emsp;&emsp;要开始使用 `requests`，你首先需要安装它，你可以使用 `pip` 来安装它
 
@@ -53,7 +53,7 @@ $ python -m pip install requests
 {'userId': 1, 'id': 1, 'title': 'delectus aut autem', 'completed': False}
 ```
 
-&emsp;&emsp;这段代码调用 `requests.get()` 发送一个 `GET` 请求到 `/todos/1`，`/todos/1`以 `ID1` 的 `todo` 项目进行相应。然后你可以在 `response` 对象中调用 `.json()` 来查看API返回的数据。
+&emsp;&emsp;这段代码调用 `requests.get()` 发送一个 `GET` 请求到 `/todos/1`，`/todos/1` 以 `ID1` 的 `todo` 项目进行相应。然后你可以在 `response` 对象中调用 `.json()` 来查看API返回的数据。
 
 &emsp;&emsp;响应的数据会被格式化为 [JSON](https://www.json.org/json-en.html)（格式），储存为像[Python dictionary](https://realpython.com/python-dicts/)一样的键值对。这是一种非常受欢迎的数据并且是大多数 `REST API` 的交互格式。
 
@@ -68,4 +68,3 @@ $ python -m pip install requests
 ```
 
 &emsp;&emsp;像这样，你通过 `response.status_code` 去查看 `HTTP` 状态码，你也可以通过 `response.headers` 查看返回值的 `HTTP头部信息`。这个字典包含了相应的元数据，例如这个响应的 `Content-Type` 。
-
