@@ -16,11 +16,11 @@
 
 通过使用 `Python` 和 `REST APIs` , 你可以检索，解析，更新，和操作你感兴趣的任何 `web` 服务提供的数据。
 
-> 免费资源：[点击这里下载“REST API示例”指南](https://realpython.com/api-integration-in-python/)，并获得 `Python + REST API` 原则的实际介绍和可操作的示例。
+> 免费资源：[点击这里下载“REST API示例”指南](https://realpython.com/api-integration-in-python/)，并获得 `Python + REST API` 原则的实际介绍和可操作的示例。  
 
 <!-- Others' translation -->
 
-# REST 和 Python：使用 API
+## REST 和 Python：使用 API
 
 &emsp;&emsp;要写代码跟 `REST API` 进行交互，很多 `Python` 开发者使用 `requests` 去发送 `HTTP` 请求。这个库提取出创建 `HTTP` 请求的复杂性。它是为数不多值得当作标准库一部分来对待的项目之一。
 
