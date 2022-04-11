@@ -1,10 +1,8 @@
 # Python 和 REST APIs：与Web服务交互
 
-
 > 翻译： [Carllllll](https://github.com/F-Ar1es)  
-> 原文：Python and REST APIs: Interacting With Web Services   
-> 链接：https://realpython.com/api-integration-in-python/   
-
+> 原文：Python and REST APIs: Interacting With Web Services
+> 链接：<https://realpython.com/api-integration-in-python/>
 
 &emsp;&emsp;网络上有大量的数据可用。许多 `Web` 服务(如 YouTube 和 GitHub)通过应用程序编程接口( `application programming interface` , 简称 `API` ), 使其数据可供第三方应用程序访问。构建 `API` 的最流行的方法之一是 `REST` 体系结构风格。 `Python` 提供了一些很棒的工具，不仅可以从 `REST API` 获取数据，还可以构建自己的 `Python REST API` 。
 
@@ -20,7 +18,6 @@
 
 > 免费资源：[点击这里下载“REST API示例”指南](https://realpython.com/api-integration-in-python/)，并获得 `Python + REST API` 原则的实际介绍和可操作的示例。
 
-
 <!-- Others' translation -->
 
 # REST 和 Python：使用 API
@@ -30,12 +27,10 @@
 &emsp;&emsp;要开始使用 `requests`，你首先需要安装它，你可以使用 `pip` 来安装它
 
 ```bash
-$ python -m pip install requests
+python -m pip install requests
 ```
 
 &emsp;&emsp;现在，你已经安装好 `requests`，可以开始发送 `HTTP` 请求了。
-
-
 
 ## GET
 
@@ -67,4 +62,58 @@ $ python -m pip install requests
 'application/json; charset=utf-8'
 ```
 
-&emsp;&emsp;像这样，你通过 `response.status_code` 去查看 `HTTP` 状态码，你也可以通过 `response.headers` 查看返回值的 `HTTP头部信息`。这个字典包含了相应的元数据，例如这个响应的 `Content-Type` 。
+&emsp;&emsp;像这样，你通过 `response.status_code` 去查看 `HTTP` 状态码，你也可以通过 `response.headers` 查看返回值的 `HTTP头部信息`。这个字典包含了相应的元数据，例如这个响应的 `Content-Type`。  
+
+## POST
+
+&emsp;&emsp;现在，（让我们看看）你才能通过使用 `requests` 库种 `POST` 数据的方式去创建一个新资源。你将再次使用 `JSONPlaceholder` ，不过这次你将在请求中使用 `JSON` 数据。你将送的内容如下所示。
+
+```JSON
+{
+"userId": 1,
+"title": "Buy milk",
+"completed": false
+}
+```
+
+&emsp;&emsp;这个 `JSON` 包含一个新的 `todo` 项信息。回到 `Python REPL` ，运行一下代码去创建一个新的 `todo` 项：
+
+```python
+>>> import requests
+>>> api_url = "https://jsonplaceholder.typicode.com/todos"
+>>> todo = {"userId": 1, "title": "Buy milk", "completed": False}
+>>> response = requests.post(api_url, json=todo)
+>>> response.json()
+{'userId': 1, 'title': 'Buy milk', 'completed': False, 'id': 201}
+
+>>> response.status_code
+20
+```
+
+&emsp;&emsp;像这样，你在系统中了调用 `requests.post()` 去创建一个新的 `todo` 项。
+
+&emsp;&emsp;首先，你创建了一个包含了 `todo` 项数据的字典。然后你将这个字典传递给 `requests.post()`的 `JSON` 关键字参数。当你这么做时，`requests.post()` 自动将 `HTTP`请求头部 `Content-Type` 设置为 `application/json` 。它也将 `todo` 项序列化成 `JSON` 字符串，同时 `requests.post()` 将这个 `JSON`字符串附加到请求的主体中。
+
+&emsp;&emsp;如果你不使用 `JSON` 关键字参数提供到 `JSON` 数据，则你需要去设置相应的 `Content-Type` 并手动序列化 `JSON`。下面是与前一个代码块等效的版本：
+
+```python
+>>> import requests
+>>> import json
+>>> api_url = "https://jsonplaceholder.typicode.com/todos"
+>>> todo = {"userId": 1, "title": "Buy milk", "completed": False}
+>>> headers = {"Content-Type":"application/json"}
+>>> response = requests.post(api_url, data=json.dumps(todo), headers=headers)
+>>> response.json()
+{'userId': 1, 'title': 'Buy milk', 'completed': False, 'id': 201}
+
+>>> response.status_code
+201
+```
+
+&emsp;&emsp;在这个代码块中，你添加了一个 `headers` 字典其中包含了设置为`Application/Json`的 `Content-Type`头部。这告诉 `REST API` 你使用请求发送 `JSON`数据。然后调用 `requests.post()`，不过不是将 `todo` 项传递给 `JSON`参数，你首先调用 `json.dumps(todo)` 去序列化它。在序列化之后，将其传递给 `data` 关键字参数。`data` 参数告诉 `requests` 这个请求中包含哪些数据。同时，你也将 `headers` 字典传递到 `requests.post()` 去手动设置 `HTTP` 头部信息。
+
+&emsp;&emsp;当你像这样调用 `requests.post()`，这会像前一个代码块一样得到相同的结果，不过这为你提供了更好的请求控制。
+
+> **注意**：[json.dumps](https://docs.python.org/3/library/json.html#json.dumps) 来自标准库的 [json](https://docs.python.org/3/library/json.html) 包。这个包提供在 [Python中使用JSON](https://realpython.com/python-json/) 的有用的方法
+
+&emsp;&emsp;在 `API` 应答后，你调用 `response.json()` 来查看 `JSON`。`JSON` 包含一个为新的 `todo` 生成的 `id`。201状态码告诉你一个新的资源被创建出来了。
