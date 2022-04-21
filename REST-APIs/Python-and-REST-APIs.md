@@ -27,7 +27,7 @@ REST API 设计是一个包含许多层次且庞大的主题。和很多其他�
 
 ### 识别资源
 
-构建 REST API 时，您将采取的第一步是确定 API 需要管理的资源。通常将这些资源称作plural nouns，如 `customers`、`events`或 `transactions`。当您在 Web 服务中识别不同的资源时，您将构建一个nouns名列表来描述用户可以在 API 中管理的不同数据。
+构建 `REST API` 时，您将采取的第一步是确定 `API` 需要管理的资源。通常将这些资源称作plural nouns，如 `customers`、`events`或 `transactions`。当您在 Web 服务中识别不同的资源时，您将构建一个nouns名列表来描述用户可以在 API 中管理的不同数据。
 
 执行此操作时，请务必考虑任何嵌套的资源。例如，`customers`可能有 `sales`，或 `events`可能包含 `guests`。当您定义 API 端点时，建立这些资源层次结构将有所帮助。
 
