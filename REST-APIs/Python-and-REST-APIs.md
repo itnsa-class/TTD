@@ -117,3 +117,72 @@ python -m pip install requests
 > **注意**：[json.dumps](https://docs.python.org/3/library/json.html#json.dumps) 来自标准库的 [json](https://docs.python.org/3/library/json.html) 包。这个包提供在 [Python中使用JSON](https://realpython.com/python-json/) 的有用的方法
 
 &emsp;&emsp;在 `API` 应答后，你调用 `response.json()` 来查看 `JSON`。`JSON` 包含一个为新的 `todo` 生成的 `id`。201状态码告诉你一个新的资源被创建出来了。
+
+## PUT
+
+&emsp;&emsp;除了 `GET` 和 `POST` ，`requests` 还提供你将对 `REST API` 进行操作的所有 `HTTP` 方法。在下面的代码中，发送一个 `PUT` 请求向存在的 `todo` 更新数据。所有通过 `PUT`请求发送的数据将完全替代 `todo`中存在的值
+
+&emsp;&emsp;你将使用与 `GET` 和 `POST`  相同的 `JSONNPlaceholder` 终端，不过这次你将在 `URL` 的尾部添加 `10` 。这将告诉 `REST API` 你想要更新的是哪一个 `todo`
+
+```python
+>>> import requests
+>>> api_url = "https://jsonplaceholder.typicode.com/todos/10"
+>>> response = requests.get(api_url)
+>>> response.json()
+{'userId': 1, 'id': 10, 'title': 'illo est ... aut', 'completed': True}
+
+>>> todo = {"userId": 1, "title": "Wash car", "completed": True}
+>>> response = requests.put(api_url, json=todo)
+>>> response.json()
+{'userId': 1, 'title': 'Wash car', 'completed': True, 'id': 10}
+
+>>> response.status_code
+200
+```
+
+&emsp;&emsp;像这样，你首先调用 `requests.get()` 去查看现有 `todo` 中的内容。接下来，你调用 `requests.put()` 通过新的 `JSON` 数据去替代存在 `to-do` 中的值。当你调用 `response.json()` 时可以看到新的值。一个成功的 `PUT` 请求会返回 `200` 而不是 `201` 因为你没有创建一个新资源而是更新了存在的资源。
+
+## PATCH
+
+&emsp;&emsp;接下来，你将使用 `requests.patch()` 去修改现有 `todo` 上指定资源的值。`PATCH` 不同于 `PUT` ，（具体体现在）它不会完全替代存在的资源。它只会修改在随请求发送的 `JSON` 中的值集
+
+&emsp;&emsp;你将使用上个例子中相同的 `todo` 去尝试 `requests.patch()`。以下是当前的值：
+
+```python
+{'userId': 1, 'title': 'Wash car', 'completed': True, 'id': 10}
+```
+
+&emsp;&emsp;现在你可以通过一个新的值更新 `title`：
+
+```python
+>>> import requests
+>>> api_url = "https://jsonplaceholder.typicode.com/todos/10"
+>>> todo = {"title": "Mow lawn"}
+>>> response = requests.patch(api_url, json=todo)
+>>> response.json()
+{'userId': 1, 'id': 10, 'title': 'Mow lawn', 'completed': True}
+
+>>> response.status_code
+200
+```
+
+&emsp;&emsp;当你调用 `response.json()` 时，你可以看到 `title` 已经被升级为 `Mow lawn`
+
+## DELETE
+
+&emsp;&emsp;最后但也相同重要的，如果你想要完全删除一个资源，你需要使用 `DELETE`。这些是删除一个 `todo` 的代码：
+
+```python
+>>> import requests
+>>> api_url = "https://jsonplaceholder.typicode.com/todos/10"
+>>> response = requests.delete(api_url)
+>>> response.json()
+{}
+
+>>> response.status_code
+200
+```
+
+&emsp;&emsp;你调用 `requests.delete()` 的 `API URL` 包含你想要删的 `todo` 的 `ID` 。这会发送一个 `DELETE` 请求到 `REST API` ，它将会删除相应的资源。在删除资源后， `API` 返回一个空的 `JSON` 对象，表明资源已经被删除。
+
+&emsp;&emsp;`requests` 库是使用 `REST API` 的一个非常好的工具，并且也是你 `Python` ”工具腰带“上不可缺少的一部分。在下一个环节，你将改变档位并且思考构建一个 `REST API` 需要什么。
