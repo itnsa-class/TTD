@@ -1,8 +1,8 @@
 # Python 和 REST APIs：与Web服务交互
 
-> 翻译：motian
-> 原文：Python and REST APIs: Interacting With Web Services
-> 链接：https://realpython.com/api-integration-in-python/
+> 翻译：motian  
+> 原文：Python and REST APIs: Interacting With Web Services  
+> 链接：https://realpython.com/api-integration-in-python/  
 
 网络上有大量的数据可用。许多 `Web` 服务(如 YouTube 和 GitHub)通过应用程序编程接口( `application programming interface` , 简称 `API` ), 使其数据可供第三方应用程序访问。构建 `API` 的最流行的方法之一是 `REST` 体系结构风格。 `Python` 提供了一些很棒的工具，不仅可以从 `REST API` 获取数据，还可以构建自己的 `Python REST API` 。
 
