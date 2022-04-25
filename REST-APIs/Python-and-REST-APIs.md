@@ -1,6 +1,6 @@
 # Python 和 REST APIs：与Web服务交互
 
-> 翻译：motian
+> 翻译：许志伦
 > 原文：Python and REST APIs: Interacting With Web Services
 > 链接：https://realpython.com/api-integration-in-python/
 
@@ -17,6 +17,24 @@ asdfasdfasdfas dfas dfaw sevrfcqwaevfaqwer
 通过使用 `Python` 和 `REST APIs` , 你可以检索，解析，更新，和操作你感兴趣的任何 `web` 服务提供的数据。
 
 > 免费资源：[点击这里下载“REST API示例”指南](https://realpython.com/api-integration-in-python/)，并获得 `Python + REST API` 原则的实际介绍和可操作的示例。
+
+
+REST 架构
+
+REST代表具象状态传输，是一种软件体系结构样式，它定义了通过网络进行客户机和服务器通信的模式。  
+REST为软件架构提供了一组约束，以提高系统的性能、可伸缩性、简单性和可靠性。
+
+REST定义了以下架构约束:  
+ 
+    Stateless: 服务器不会在来自客户机的请求之间维护任何状态。  
+    Client-server: 客户端和服务器必须相互解耦，允许各自独立开发。  
+    Cacheable: 从服务器检索到的数据应该可以由客户机或服务器缓存。  
+    Uniform interface: 服务器将提供一个统一的接口来访问资源，而无需定义它们的表示形式。  
+    Layered system: 客户端可以通过代理或负载均衡器等其他层间接访问服务器上的资源。 
+    Code on demand (optional): 服务器可以将代码传输到它可以运行的客户机，例如用于单页应用程序的JavaScript。  
+    
+注意，REST不是一个规范，而是一组关于如何构建网络连接软件系统的指导方针。 
+
 
 REST 体系是一个什么东西。
 
